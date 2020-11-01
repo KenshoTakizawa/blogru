@@ -51,8 +51,8 @@ Things you may want to cover:
 | user             | references | null: false, foreign_key: true   |
 | nickname         | string     | null: false                      |
 | learning_history | string     | null: false,                     |
-| purpose          | string     | null: false,                     |
-| birth_data       | data       | null: false                      |
+| purpose          | text     | null: false,                     |
+| birth_date       | data       | null: false                      |
 
 
 ### Association

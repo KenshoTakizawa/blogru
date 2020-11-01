@@ -1,0 +1,18 @@
+<%= form_with model: @article, local: true do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <%= form.file_field :image, id:"article-image" %>
+
+  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"article-category"}) %>
+
+  <!-- 2019/10/19 Add S -->
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
+  </div>
+  <!-- 2019/10/19 Add E -->
+  <%= form.submit "更新する" ,class:"submit" %>
+  <% end%>

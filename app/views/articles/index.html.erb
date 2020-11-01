@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+  <div class="design">
+    <%= image_tag 'layouts/design1.png', class: :kk %>
+  </div>
+  <div class="recent-posts">
+    <p>最近の投稿</p>
+    <div class="post-wrapper">
+      <div class="post-contents">
+        <% @articles.each do |article|%>
+        <%= link_to article_path(article.id) do %>
+        <% if article.image.present? %>
+        <div class="article-img-content">
+          <%= image_tag article.image, class: "article-image"%>
+        </div>
+
+        <% end%>
+        <div class="article-title">
+          <%= article.title %>
+        </div>
+        <% end%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="teachers">
+    <p>先生一覧</p>
+    <div class="teachers-wrapper">
+      <div class="each-teachers">
+
+      </div>
+    </div>
+  <div>
+<div>

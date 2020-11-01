@@ -1,0 +1,54 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#articles-index{
+  width: 100%;
+  .content-wrapper {
+    .design {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .kk {
+        width: 95%;
+        height: 200px;
+      }
+      
+    }
+    .recent-posts {
+      p {
+          font-size: 30px;
+      }
+      .post-wrapper {
+        display: flex;
+        justify-content: center;
+        .post-contents {
+          width: 90%;
+          height: 300px;
+          background-color: aquamarine;
+          .article-image {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+
+    .teachers {
+      p {
+          font-size: 30px;
+      }
+      .teachers-wrapper {
+        display: flex;
+        justify-content: center;
+        .each-teachers {
+          width: 90%;
+          height: 300px;
+          background-color: aqua;
+        }
+      }
+    }
+  }
+
+}
+

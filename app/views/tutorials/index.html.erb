@@ -1,0 +1,52 @@
+<div class="container">
+  <%= link_to '投稿する', new_tutorial_path, class: 'tutorial-post'%>
+
+  <div class="seo-contents">
+    <div class="contents">
+    <% if @seo_tutorials.present?%>
+      <%= @seo_tutorials.each do |seo|%>
+        <%= link_to tutorial_path(seo.id) do %>
+        <% if seo.image.present? %>
+        <div class="seo-img-content">
+          <%= image_tag seo.image, class: "seo-image"%>
+        </div>
+
+        <% end%>
+        <div class="seo-title">
+          <%= seo.title %>
+        </div>
+
+        <div class="seo-contents">
+          <%= @article.content %>
+        </div>
+        <% end%>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+
+  <div class="copy-contents">
+    <div class="contents">
+    <% if @seo_tutorials.present?%>
+      <%= @copy_tutorials.each do |copy|%>
+        <%= link_to tutorial_path(copy.id) do %>
+        <% if copy.image.present? %>
+        <div class="copy-img-content">
+          <%= image_tag copy.image, class: "seo-image"%>
+        </div>
+
+        <% end%>
+        <div class="copy-title">
+          <%= copy.title %>
+        </div>
+
+        <div class="copy-contents">
+          <%= @article.content %>
+        </div>
+        <% end%>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+
+</div>

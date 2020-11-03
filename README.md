@@ -44,6 +44,21 @@ Things you may want to cover:
 - has_many :orders
 - has_many :teacher_evaluations
 
+
+## admin テーブル
+
+| Column          | Type   | Options                          |
+| --------------- | ------ | -------------------------------- |
+| email           | string | null: false, uniqueness: true    |
+| password        | string | null: false,                     |
+
+
+### Association
+
+- has_many :tutorial
+- has_many :tips
+
+
 ## profiles テーブル
 
 | Column           | Type       | Options                          |
@@ -86,8 +101,23 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :article
-- has_many :comments
-- has_many :teacher_comments
+
+
+## tutorials テーブル
+
+| Column             | Type        | Options                        |
+| ------------------ | ----------- | ------------------------------ |
+| admin              | references  | null: false, foreign_key: true |
+| title              | string      | null: false                    |
+| content            | text        | null: false                    |
+| tuto_category_id   | integer     | null: false                    |
+
+### Association
+
+- belongs_to :admin
+
+##ここまで一旦見た目整備##########################
+
 
 ## teachers テーブル
 
@@ -152,32 +182,18 @@ Things you may want to cover:
 - belongs_to :teacher
 
 
-## tutorials テーブル
-
-| Column             | Type        | Options                        |
-| ------------------ | ----------- | ------------------------------ |
-| user               | references  | null: false, foreign_key: true |
-| title              | string      | null: false                    |
-| content            | text        | null: false                    |
-| tuto_category_id   | integer     | null: false                    |
-
-### Association
-
-- belongs_to :user
-
-
 ## tips テーブル
 
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
-| user               | references  | null: false, foreign_key: true |
+| admin              | references  | null: false, foreign_key: true |
 | title              | string      | null: false                    |
 | content            | text        | null: false                    |
 | tip_category_id    | integer     | null: false                    |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :admin
 
 
 ## introduce テーブル

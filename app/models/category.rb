@@ -11,4 +11,6 @@ class Category < ActiveHash::Base
     { id: 9, name: 'アニメ' },
 
   ]
+  include ActiveHash::Associations
+  has_many :articles
 end

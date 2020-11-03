@@ -1,0 +1,35 @@
+<%= form_with model: @profile, local: true do |form| %>
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <%= form.file_field :image, id:"article-image" %>
+
+  <!-- 2019/10/19 Add S -->
+  <div class="field">
+    <%= form.label :learning_history %>
+    <%= form.text_field :learning_history %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purpose %>
+    <%= form.text_field :purpose %>
+  </div>
+
+  <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  form.date_select(
+                    :birth_data,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+  </div>
+  <!-- 2019/10/19 Add E -->
+  <%= form.submit "設定する" ,class:"submit" %>
+  <% end%>

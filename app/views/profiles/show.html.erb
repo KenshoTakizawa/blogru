@@ -1,0 +1,20 @@
+<h2>
+  <%= @profile.nickname %>
+</h2>
+<% if @profile.image.present? %>
+<%= image_tag @profile.image, class: "kk"%>
+<% end%>
+<div class="profile-history">
+  <%= @profile.learning_history %>
+</div>
+
+<div class="profile-purpose">
+  <%= @profile.purpose %>
+</div>
+
+<div class="profile-birth">
+  <%= @profile.birth_date %>
+</div>
+
+<%= link_to '編集する', edit_profile_path(@profile.id), class: 'article-edit'%>
+<%= link_to '削除', profile_path(@profile.id), method: :delete, class:'profile-destroy' %>

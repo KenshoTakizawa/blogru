@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
   belongs_to_active_hash :category
+  has_many :comments
 
   belongs_to :user
 

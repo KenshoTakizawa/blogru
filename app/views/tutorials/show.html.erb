@@ -1,0 +1,12 @@
+<h2>
+  <%= @article.title %>
+</h2>
+<% if @article.image.present? %>
+<%= image_tag @article.image, class: "kk"%>
+<% end%>
+<div class="article-contents">
+  <%= @article.content %>
+</div>
+
+<%= link_to '編集する', edit_article_path(@article.id), class: 'article-edit'%>
+<%= link_to '削除', article_path(@article.id), method: :delete, class:'article-destroy' %>

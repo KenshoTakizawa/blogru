@@ -12,6 +12,17 @@
         <li>
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>
+        <% elsif current_admin %>
+        <li>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        </li>
+        <li>
+          <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
+        </li>
+        <li>
+          <%= link_to 'tips一覧', "#", class: "tips-contents"%>
+        </li>
+
         <% else %>
         <li>
           <%= link_to '新規登録', new_user_registration_path, class: "sign-up"%>
@@ -27,6 +38,12 @@
     <div class="search-window">
     </div>
     <div class="aicom">
+    <% if user_signed_in? %>
+      <%= link_to profile_path(current_user.profile.id) do %>
+      <%= image_tag current_user.profile.image, class: "user-image"%>
+    <% end%>
+
+      <% end%>
     </div>
   </div>
 </div>

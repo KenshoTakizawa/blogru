@@ -3,93 +3,115 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #registrations-new, #registrations-create{
-  h2 {
-    margin-left: 35%;
-    margin-right: 33%;
-    margin-bottom: 20px;
-  }
-  #error_explanation li{
-    margin-left: 35%;
-    margin-right: 33%;
-    background-color: blue;
-    
-  }
-  .new_admin{
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-bottom: 20px;
-    input[type="email"], input[type="text"], input[type="password"]{
-      width: 420px;
-      height: 40px;
-      margin-bottom: 10px;
-      padding-left: 15px;
+  .content-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    h2 {
+      margin-left: 35%;
+      margin-right: 33%;
+      margin-bottom: 20px;
     }
-    input[type="submit"] {
-      margin-left: 40%;
-      margin-right: 40%;
-
-
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border-bottom: solid 2px #627295;
-      border-radius: 5px;
+    #error_explanation li{
+      margin-left: 35%;
+      margin-right: 33%;
+      background-color: blue;
+      
     }
-    input[type="submit"]:active {
-      /*ボタンを押したとき*/
-      -webkit-transform: translateY(4px);
-      transform: translateY(4px);/*下に動く*/
-      border-bottom: none;/*線を消す*/
+    .new_admin{
+      margin-left: 35%;
+      margin-right: 35%;
+      margin-bottom: 20px;
+      input[type="email"], input[type="text"], input[type="password"]{
+        width: 420px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        border: 1px solid #333;
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        margin-left: 40%;
+        margin-right: 40%;
+  
+  
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #668ad8;/*ボタン色*/
+        color: #FFF;
+        border-bottom: solid 2px #627295;
+        border-radius: 5px;
+      }
+      input[type="submit"]:active {
+        /*ボタンを押したとき*/
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);/*下に動く*/
+        border-bottom: none;/*線を消す*/
+      }
     }
   }
 }
 
 #sessions-new, #sessions-create{
-  .alert {
-    margin-left: 35%;
-    margin-right: 33%;
-  }
-  h2 {
-    margin-left: 35%;
-    margin-right: 33%;
-    margin-bottom: 20px;
-  }
-  #error_explanation li{
-    margin-left: 35%;
-    margin-right: 33%;
-    background-color: blue;
+  .content-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    .alert {
+      margin-left: 35%;
+      margin-right: 33%;
+    }
+    h2 {
+      margin-left: 35%;
+      margin-right: 33%;
+      margin-bottom: 20px;
+    }
+    #error_explanation li{
+      margin-left: 35%;
+      margin-right: 33%;
+      background-color: blue;
+      
+    }
+    .new_admin{
+      margin-left: 35%;
+      margin-right: 35%;
+      margin-bottom: 20px;
+      input[type="email"], input[type="password"]{
+        width: 400px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        border: 1px solid #333;
+        border-radius: 5px;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        input[type="submit"] {
+          margin-left: 40%;
+          margin-right: 40%;
     
-  }
-  .new_admin{
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-bottom: 20px;
-    input[type="email"], input[type="password"]{
-      width: 400px;
-      height: 40px;
-      margin-bottom: 10px;
-      padding-left: 15px;
-    }
-    input[type="submit"] {
-      margin-left: 40%;
-      margin-right: 40%;
-
-
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border-bottom: solid 2px #627295;
-      border-radius: 5px;
-    }
-    input[type="submit"]:active {
-      /*ボタンを押したとき*/
-      -webkit-transform: translateY(4px);
-      transform: translateY(4px);/*下に動く*/
-      border-bottom: none;/*線を消す*/
+    
+          display: inline-block;
+          max-width: 180px;
+          text-align: left;
+          border: 2px solid #57bbac;
+          font-size: 16px;
+          color: #57bbac;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 8px 16px;
+          border-radius: 4px;
+          transition: .4s;
+          margin: 10px 0;
+        }
+        input[type="submit"]:hover {
+          background-color: #57bbac;
+          border-color: #EEFFFF;
+          color: #FFF;
+        }
+      }
     }
   }
 }

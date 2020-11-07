@@ -1,18 +1,28 @@
-<%= form_with model: @article, local: true do |form| %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+<div class="container">
+  <h2>投稿を編集</h2>
 
-  <%= form.file_field :image, id:"article-image" %>
 
-  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"article-category"}) %>
+  <%= form_with model: @article, local: true do |form| %>
+    <div class="field">
+      <%= form.text_field :title, placeholder: "タイトルを入力してください", class: "title"%>
+    </div>
 
-  <!-- 2019/10/19 Add S -->
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-  </div>
-  <!-- 2019/10/19 Add E -->
-  <%= form.submit "更新する" ,class:"submit" %>
+    <label class="form-image">
+      <span class="select-image">メディアを追加</span>
+      <%= form.file_field :image, class:"article-image" %>
+    </label>
+
+    <label class="form-category">
+    <span class="select-category">カテゴリーを選択</span>
+    <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"article-category"}) %>
+    </label>
+
+    <!-- 2019/10/19 Add S -->
+    <div class="field">
+      <%= form.label :content, class: "content-label"%>
+      <%= form.rich_text_area :content, class: "content-field" %>
+    </div>
+    <!-- 2019/10/19 Add E -->
+    <%= form.submit "更新する" ,class:"submit" %>
   <% end%>
+</div>

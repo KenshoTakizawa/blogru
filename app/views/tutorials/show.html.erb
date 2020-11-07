@@ -1,12 +1,17 @@
-<h2>
-  <%= @article.title %>
-</h2>
-<% if @article.image.present? %>
-<%= image_tag @article.image, class: "kk"%>
-<% end%>
-<div class="article-contents">
-  <%= @article.content %>
-</div>
+<div class="container">
+  <h2>
+    <%= @tutorial.title %>
+  </h2>
+  <% if @tutorial.image.present? %>
+    <div class="samune">
+      <%= image_tag @tutorial.image, class: "tutorial-image"%>
+    </div>
+  <% end%>
+  <div class="tutorial-content">
+    <%= @tutorial.content %>
+  </div>
 
-<%= link_to '編集する', edit_article_path(@article.id), class: 'article-edit'%>
-<%= link_to '削除', article_path(@article.id), method: :delete, class:'article-destroy' %>
+  <%= link_to '編集する', edit_tutorial_path(@tutorial.id), class: 'tutorial-edit'%>
+  <%= link_to '削除', tutorial_path(@tutorial.id), method: :delete, class:'tutorial-destroy' %>
+  
+</div>

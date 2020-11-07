@@ -1,21 +1,28 @@
+<div class="container">
 <h2>
   <%= @article.title %>
 </h2>
 <% if @article.image.present? %>
-<%= image_tag @article.image, class: "kk"%>
+<div class="samune">
+<%= image_tag @article.image, class: "article-image"%>
+</div>
 <% end%>
-<div class="article-contents">
+<div class="article-content">
   <%= @article.content %>
 </div>
 
 <%= link_to '編集する', edit_article_path(@article.id), class: 'article-edit'%>
 <%= link_to '削除', article_path(@article.id), method: :delete, class:'article-destroy' %>
 
-<div class="container">
+<div class="comment-container">
     <% if current_user %>
       <%= form_with(model: [@article, @comment], local: true) do |form| %>
-        <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <%=image_tag current_user.profile.image , class: "user-image"%>
+
+        <%= form.text_area :content, placeholder: "コメントする", rows: "1", class: "comment-area" %>
+        <div class="submit">
+        <%= form.submit "コメントする", class: "send" %>
+        </div>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
@@ -24,12 +31,23 @@
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
+      
         <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.profile.nickname, profile_path(comment.user.profile.id) %>：</strong>
-            <%= comment.content %>
-          </p>
+        <div class="comment">
+          <div class="commenter-image">
+          <%=image_tag comment.user.profile.image, class: "image"%>
+          </div>
+          <div class="main-content">
+              <%= link_to comment.user.profile.nickname, profile_path(comment.user.profile.id), class: "name" %>
+              <div class="content">
+              <%= comment.content %>
+              </div>
+          </div>
+        </div>
         <% end %>
+      
       <% end %>
     </div>
   </div>
+</div>
+</div>

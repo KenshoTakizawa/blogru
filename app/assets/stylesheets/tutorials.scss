@@ -3,14 +3,278 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #tutorials-index {
-  .seo-contents {
-    width: 100%;
-    height: 300px;
-    background-color: blue;
+  .background {
+    background-color: rgb(245, 245, 245);
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+
+      h3.seo{
+        margin: 20px 0 10px 0;
+        font-size: 24px;
+        color: #76d8c9;
+      }
+      h3.copy{
+        margin: 20px 0 10px 0;
+        font-size: 24px;
+        color: #ec9f5f;
+      }
+      
+      .bottun-area {
+        margin-bottom: 10px;
+        display: flex;
+        margin-left: auto;
+        .tutorial-post {
+          margin-top: 20px;
+          text-decoration: none;
+          color: #333;
+          border: solid 1px #333;
+          padding: 10px 20px;
+          background-color: gray;
+          margin-left: 20px;
+        }
+      }
+      .seo-contents {
+        width: 73%;
+        height: 300px;
+        overflow: scroll;
+        padding: 20px;
+
+        padding: 0.5em 1em;
+        margin: 10px 0;
+        color: #FFF;
+        background: #76d8c9;
+        border-bottom: solid 6px #045345;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 9px;
+        .contents {
+          display: flex;
+          flex-direction: column;
+          margin-top: 15px;
+          .content {
+            width: 95%;
+            height: 100px;
+            margin: 0 0 10px 10px;
+            background-color: white;
+            box-shadow: 0 3px 0 #333;
+            box-shadow: 3px 3px 6px #333;
+            transition: .4s;
+            border-radius: 5px;
+            .seo-a {
+              text-decoration: none;
+              color: #333;
+              .seo-img-content {
+                .seo-image {
+
+                  width: 120px;
+                  height: 100px;
+                  border-radius: 5px;
+                }
+              }
+              .fake-image {
+                background-color: gray;
+                width: 120px;
+                height: 100px;
+                border-radius: 5px;
+              }
+            }
+            a {
+              display: flex;
+              .seo-title {
+                padding: 10px;
+                font-size: 14.4px;
+                font-weight: bold;
+                text-decoration: none;
+              }
+            }
+          }
+          .content:hover {
+            box-shadow: 1px 1px 2px rgba(136,136,136,1);
+          }
+        }
+      }
+      .copy-contents {
+        width: 73%;
+        height: 300px;
+        overflow: scroll;
+        padding: 20px;
+
+        padding: 0.5em 1em;
+        margin: 10px 0 30px 0;
+        color: #FFF;
+        background: #ec9f5f;
+        border-bottom: solid 6px #9b4f11;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 9px;
+        .contents {
+          display: flex;
+          flex-direction: column;
+          margin-top: 15px;
+          .content {
+            width: 95%;
+            height: 100px;
+            margin: 0 0 10px 10px;
+            background-color: white;
+            box-shadow: 0 3px 0 #333;
+            box-shadow: 3px 3px 6px #333;
+            transition: .4s;
+            border-radius: 5px;
+            .copy-a {
+              text-decoration: none;
+              color: #333;
+              .copy-img-content {
+                .copy-image {
+
+                  width: 120px;
+                  height: 100px;
+                  border-radius: 5px;
+                }
+              }
+              .fake-image {
+                background-color: gray;
+                width: 120px;
+                height: 100px;
+                border-radius: 5px;
+              }
+            }
+            a {
+              display: flex;
+              .copy-title {
+                padding: 10px;
+                font-size: 14.4px;
+                font-weight: bold;
+                text-decoration: none;
+              }
+            }
+          }
+          .content:hover {
+            box-shadow: 1px 1px 2px rgba(136,136,136,1);
+          }
+        }
+      }
+    }
   }
-  .copy-contents {
-    width: 100%;
-    height: 300px;
-    background-color: coral;
+}
+
+#tutorials-new, #tutorials-edit {
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    h2 {
+      color: rgb(51, 51, 51);
+      margin: 20px 0 10px 10px;
+    }
+    .title {
+      width: 80%;
+      height: 40px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding-left: 5px;
+      margin: 0 0 15px 10px;
+    }
+
+    .form-image{
+      .tutorial-image{
+        display: none;
+      }
+      .select-image {
+
+        display: flex;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: #EEFFFF;
+        color: #1E90FF;
+        border: 2px solid #1E90FF;
+        padding: 8px 12px;
+        width: 115px;
+        margin: 5px 10px;
+        text-align: center;
+        transition: .4s;
+      }
+      .select-image:hover {
+        background-color: #1E90FF;
+        color: #fff;
+      }
+    }
+
+    .form-category {
+      display: flex;
+      .tuto-select-category {
+        display: flex;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: #EEFFFF;
+        color: #1E90FF;
+        border: 2px solid #1E90FF;
+        padding: 8px 12px;
+        width: 125px;
+        margin: 5px 10px;
+        text-align: center;
+        transition: .4s;
+      }
+      .tuto-select-category:hover {
+        background-color: #1E90FF;
+        color: #fff;
+      }
+      .select-box {
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 5px 7px;
+      }
+    }
+    .field {
+      
+      .content-label {
+
+      }
+      .content-field {
+        overflow: scroll;
+        height: 47.5vh;
+      }
+    }
+
+    .submit {
+      display: inline-block;
+      max-width: 180px;
+      text-align: left;
+      border: 2px solid #57bbac;
+      font-size: 16px;
+      color: #57bbac;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: .4s;
+      margin: 10px 5px;
+    }
+    .submit:hover {
+      background-color: #57bbac;
+      border-color: #EEFFFF;
+      color: #FFF;
+    }
+  }
+}
+
+#tutorials-show {
+  .container {
+
+    max-width: 1180px;
+    margin: 0 auto;
+    h2{
+      font-size: 1.8rem;
+      padding: 15px 10px;
+    }
+    .samune {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+      .tutorial-image {
+        height: 40vh;
+      }
+    }
+    .tutorial-content {
+      padding: 0 30px 0 30px;
+    }
   }
 }

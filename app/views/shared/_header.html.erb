@@ -1,33 +1,36 @@
 <div id="header">
   <div class="left-side">
-    <div class="logo">
-      <a href="/">ロゴ</a>
+    <div class="k">
+      <%= link_to image_tag('blogru1.png'),root_path, class: "logo" %>
     </div>
     <div class="link">
       <ul class="menu">
       <% if user_signed_in? %>
-        <li>
+        <li class="item">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
         </li>
-        <li>
+        <li class="item">
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>
-        <% elsif current_admin %>
-        <li>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-        </li>
-        <li>
+        <li class="item">
           <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
         </li>
-        <li>
+        <% elsif current_admin %>
+        <li class="item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        </li>
+        <li class="item">
+          <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
+        </li>
+        <li class="item">
           <%= link_to 'tips一覧', "#", class: "tips-contents"%>
         </li>
 
         <% else %>
-        <li>
+        <li class="item">
           <%= link_to '新規登録', new_user_registration_path, class: "sign-up"%>
         </li>
-        <li>
+        <li class="item">
           <%= link_to 'ログイン', new_user_session_path, class: "sign-in"%>
         </li>
         <% end%>

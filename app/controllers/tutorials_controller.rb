@@ -47,6 +47,6 @@ class TutorialsController < ApplicationController
   end
 
   def tutorial_params
-    params.require(:tutorial).permit(:title, :image, :tuto_category_id).mergin(admin_id: current_admin.id)
+    params.require(:tutorial).permit(:title, :image, :content, :tuto_category_id).merge(admin_id: current_admin.id)
   end
 end

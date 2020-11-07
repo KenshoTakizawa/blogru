@@ -15,7 +15,13 @@
  *= require_tree .
  */
 
+body {
+  
+}
+
 #header {
+  max-width: 1180px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,14 +31,20 @@
 .left-side {
   display: flex;
   align-items: center;
-  padding: 20px;
+  justify-content: space-between;
+
 
 }
 
-.logo a{
-  margin-left: 10px;
+.logo img {
+  width: 200px;
+  height: 70px;
   text-decoration: none;
   color: #333;
+}
+
+.link {
+  margin-left: 20px;
 }
 
 .menu {
@@ -40,10 +52,18 @@
   list-style: none;
 }
 
+li {
+  padding: 21px 8px;
+}
+
 li a {
-  margin-left: 10px;
   text-decoration: none;
-  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  color: #57bbac;
+}
+li:hover {
+  background-color: rgb(245, 245, 245);
 }
 
 #footer {
@@ -64,21 +84,22 @@ li a {
 }
 
 .search-window {
-  width: 300px;
-  height: 30px;
+  width: 250px;
+  height: 35px;
+  border-radius: 30px;
   background-color: aqua;
 }
 
 .aicom {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: aquamarine;
   
 }
 
 .user-image {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }

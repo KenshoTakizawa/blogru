@@ -17,10 +17,18 @@
         </li>
         <% elsif current_admin %>
         <li class="item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "logout" %>
         </li>
         <li class="item">
           <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
+        </li>
+        <li class="item">
+          <%= link_to 'tips一覧', "#", class: "tips-contents"%>
+        </li>
+        <% elsif current_teacher %>
+
+        <li class="item">
+          <%= link_to 'ログアウト', destroy_teacher_session_path, method: :delete, class: "logout" %>
         </li>
         <li class="item">
           <%= link_to 'tips一覧', "#", class: "tips-contents"%>
@@ -33,6 +41,9 @@
         <li class="item">
           <%= link_to 'ログイン', new_user_session_path, class: "sign-in"%>
         </li>
+        <li class="item">
+          <%= link_to 'Teacherログイン', new_teacher_session_path, class: "teacher-sign-in"%>
+        </li>
         <% end%>
       </ul>
     </div>
@@ -40,12 +51,19 @@
   <div class="right-side">
     <div class="search-window">
     </div>
-    <div class="aicom">
-    <% if user_signed_in? %>
-      <%= link_to profile_path(current_user.profile.id) do %>
-      <%= image_tag current_user.profile.image, class: "user-image"%>
-    <% end%>
-
+    <div class="aicon">
+      <% if user_signed_in? %>
+        <%= link_to profile_path(current_user.profile.id) do %>
+        <%= image_tag current_user.profile.image, class: "user-image"%>
+        <% end%>
+      <% elsif teacher_signed_in? %>
+        <%= link_to teachers_show_path(current_teacher.id) do %>
+        <%  if current_teacher.image.attached? %>
+        <%= image_tag current_teacher.image, class: "teacher-img"%>
+        <% else%>
+        <div class="fake-aicon"></div>
+        <%end%>
+        <% end%>
       <% end%>
     </div>
   </div>

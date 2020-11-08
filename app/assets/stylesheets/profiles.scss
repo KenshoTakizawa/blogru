@@ -1,3 +1,44 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#profiles-show {
+  .container {
+    
+    background-color: rgb(245, 245, 245);
+    .image-container {
+      padding: 30px 150px;
+      height: 110px;
+      background-color: #57bbac;
+      display: flex;
+      h3 {
+        margin: 25px 0 0 20px;
+        font-size: 22px;
+        color: white;
+      }
+      .profile-image {
+        width: 145px;
+        height: 145px;
+        border-radius: 50%;
+        border: 5px solid #57bbac;
+      }
+    }
+    .introduce-container {
+      max-width: 1180px;
+      height: 480px;
+      margin-top: 90px;
+      margin-left: 160px;
+      .introduce {
+        width: 63%;
+        height: 200px;
+        padding: 30px;
+        background-color: white;
+
+        p {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+// ########################teacherのやつ

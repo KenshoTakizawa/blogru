@@ -1,20 +1,32 @@
-<h2>
-  <%= @profile.nickname %>
-</h2>
-<% if @profile.image.present? %>
-<%= image_tag @profile.image, class: "kk"%>
-<% end%>
-<div class="profile-history">
-  <%= @profile.learning_history %>
-</div>
+<div class="container">
+  <% if @profile.image.present? %>
+    <div class="image-container">
+      <%= image_tag @profile.image, class: "profile-image"%>
 
-<div class="profile-purpose">
-  <%= @profile.purpose %>
-</div>
+      <h3>
+        <%= @profile.nickname %>
+      </h3>
+    </div>
+  <% end%>
 
-<div class="profile-birth">
-  <%= @profile.birth_date %>
-</div>
+  
+  <div class="introduce-container">
+    <div class="introduce">
+      <p>自己紹介</p>
+      <div class="profile-history">
+        <%= @profile.learning_history %>
+      </div>
 
-<%= link_to '編集する', edit_profile_path(@profile.id), class: 'article-edit'%>
-<%= link_to '削除', profile_path(@profile.id), method: :delete, class:'profile-destroy' %>
+      <div class="profile-purpose">
+        <%= @profile.purpose %>
+      </div>
+
+      <div class="profile-birth">
+        <%= @profile.birth_date %>
+      </div>
+
+      <%= link_to '編集する', edit_profile_path(@profile.id), class: 'profile-edit'%>
+      <%= link_to '削除', profile_path(@profile.id), method: :delete, class:'profile-destroy' %>
+    </div>
+  </div>
+</div>

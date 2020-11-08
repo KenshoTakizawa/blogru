@@ -1,0 +1,40 @@
+<div class="container">
+  <% if @teacher.image.present? %>
+    <div class="image-container">
+      <%= image_tag @teacher.image, class: "teacher-image"%>
+
+      <h3>
+        <%= @teacher.nickname %>
+      </h3>
+    </div>
+  <% else%>
+    <div class="image-container">
+      <div class="fake-image"></div>
+
+      <h3>
+        <%= @teacher.nickname %>
+      </h3>
+    </div>
+  <% end%>
+
+  
+  <div class="introduce-container">
+    <div class="introduce">
+      <p>自己紹介</p>
+      <div class="profile-history">
+        <%= @teacher.teach_content %>
+      </div>
+
+      <div class="profile-purpose">
+        <%= @teacher.teach_detail %>
+      </div>
+
+      <div class="profile-birth">
+        <%= @teacher.teacher_history %>
+      </div>
+
+      <%= link_to '編集する', edit_teacher_registration_path(@teacher.id), class: 'teacher-edit'%>
+      <%# <%= link_to '削除', teacher_path(@profile.id), method: :delete, class:'profile-destroy' %> 
+    </div>
+  </div>
+</div>

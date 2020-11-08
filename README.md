@@ -123,15 +123,13 @@ Things you may want to cover:
 
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
-| user               | references  | null: false, foreign_key: true |
 | teach_content      | string      | null: false                    |
 | teach_detail       | text        | null: false                    |
-| teacher_history    | string      | null: false                    |
-| teacher_detail     | text        | null: false                    |
+| teacher_history    | text        | null: false                    |
+| nickname           | string      | null: false                    |
 
 ### Association
 
-- belongs_to :user
 - has_many :teacher_comments
 - has_many :orders
 - has_many :teacher_evaluations

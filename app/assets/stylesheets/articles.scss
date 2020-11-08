@@ -30,14 +30,15 @@
           justify-content: center;
 
           .post-contents {
-            display: flex;
-            flex-wrap:wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
             width: 90%;
             height: 330px;
+            align-content: flex-start;
             
             .post-content{
-              width: 48%;
+              
               height: 100px;
               background-color: white;
               box-shadow: 0 3px 0 rgba(136,136,136,1);
@@ -68,7 +69,7 @@
           }
         }
       }
-  
+
       .teachers {
         h3 {
             font-size: 24px;
@@ -78,10 +79,60 @@
         .teachers-wrapper {
           display: flex;
           justify-content: center;
+
           .each-teachers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px 20px;
             width: 90%;
-            height: 300px;
-            background-color: aqua;
+            height: 330px;
+            align-content: flex-start;
+            
+            .teacher-content{
+              
+              height: 100px;
+              background-color: white;
+              box-shadow: 0 3px 0 rgba(136,136,136,1);
+              box-shadow: 3px 3px 6px gray;
+              transition: .4s;
+              .teacher-a {
+                text-decoration: none;
+                color: #333;
+              }
+              a {
+                display: flex;
+                .introduce-teacher {
+
+                  .teacher-nickname {
+                    padding: 10px 0 5px 10px;
+                    font-size: 14.4px;
+                    font-weight: bold;
+                    text-decoration: none;
+                  }
+                  .teacher-conten {
+                    padding: 0 15px;
+                    
+                    p {
+                      font-size: 12px;
+                      font-weight: bold;
+                      
+                    }
+                    .detail {
+                      padding:0  4px;
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+
+            }
+            .teacher-content:hover {
+              box-shadow: 1px 1px 2px rgba(136,136,136,1);
+              }
+            .teacher-image {
+              width: 100px;
+              height: 100px;
+            }
           }
         }
       }

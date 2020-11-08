@@ -1,0 +1,55 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%# <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_with model: @teacher, url: registration_path(resource_name), local: true do |f| %>
+  <%= render "teachers/shared/error_messages", resource: resource %>
+  <div class="form-group">
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image, class:"teacher-image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname, "ニックネーム" %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teach_content, "教えられる内容の概要" %><br />
+    <%= f.text_field :teach_content, autofocus: true, autocomplete: "teach-content" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teach_detail, "教えられる内容の詳細" %><br />
+    <%= f.text_area :teach_detail, autofocus: true, autocomplete: "teach-detail" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_history, "経歴" %><br />
+    <%= f.text_area :teacher_history, autofocus: true, autocomplete: "teacher-history" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+<%= render "teachers/shared/links" %>
+
+
+
+<%# <h3>Cancel my account</h3> %>
+
+<%# <p> %>
+<%# Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<%# </p> %>
+
+<%# <%= link_to "Back", :back %>
+
+</div>

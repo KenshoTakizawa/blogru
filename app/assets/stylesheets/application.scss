@@ -61,6 +61,7 @@ li a {
   font-size: 14px;
   font-weight: bold;
   color: #57bbac;
+  padding: 25px 8px;
 }
 li:hover {
   background-color: rgb(245, 245, 245);
@@ -90,7 +91,7 @@ li:hover {
   background-color: aqua;
 }
 
-.aicom {
+.aicon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -102,4 +103,17 @@ li:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.teacher-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fake-aicon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #57bbac;
 }

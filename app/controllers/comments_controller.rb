@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content).merge(user_id: current_user.id, article_id: params[:article_id])
+    params.require(:teacher_comment).permit(:content).merge(teacher_id: current_teacher.id, article_id: params[:article_id])
   end
 
 end

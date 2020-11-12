@@ -60,8 +60,7 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
 
-
-gem 'haml-rails'
+gem 'payjp'
 
 gem 'actiontext'
 

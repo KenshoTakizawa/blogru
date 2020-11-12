@@ -30,3 +30,12 @@
     </div>
   </div>
 </div>
+
+
+  <% current_user.orders.each do |order|%>
+    <%= order.teacher.nickname %>
+    <%= order.price%>
+
+  <% end%>
+
+

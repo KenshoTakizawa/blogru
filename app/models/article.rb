@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   
   belongs_to_active_hash :category
   has_many :comments
+  has_many :teacher_comments
 
   belongs_to :user
 

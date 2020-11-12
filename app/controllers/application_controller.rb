@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def configure_sign_up_params
     if resource_class == Teacher
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:teach_content, :teach_detail, :teacher_history, :nickname, :image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:teach_content, :teach_detail, :teacher_history, :nickname, :plan_id, :image])
     end
   end
 

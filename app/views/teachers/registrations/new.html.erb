@@ -48,6 +48,11 @@
     <%= f.text_area :teacher_history, autofocus: true, autocomplete: "teacher-history" %>
   </div>
 
+  <div class="field">
+    <%= f.label :plan_id, "生徒さんに教えてあげる時の月額" %><br />
+    <%= f.collection_select(:plan_id, Plan.all, :id, :name, {}, {class:"plan-select"}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

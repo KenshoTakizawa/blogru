@@ -1,0 +1,32 @@
+
+<div class="comment-container">
+    <% if current_user %>
+      <%= form_with(model: [@teacher, @teacher_evaluation], url: teacher_teacher_evaluations_path, local: true) do |form| %>
+        <%=image_tag current_user.profile.image , class: "user-image"%>
+
+        <div class="field" id="star">
+          <%= form.label :rate,  "星評価 (※必須)" ,id: "e"%>
+          <%= form.hidden_field :rate, id: :review_star %>
+        </div>
+        <script>
+          $('#star').raty({
+            half:  true,
+              space: false,
+              size     : 30,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'teacher_evaluation[rate]',
+          });
+        </script>
+
+        <%= form.text_area :review, placeholder: "レビューする", rows: "3", class: "comment-area" %>
+        <div class="submit">
+        <%= form.submit "投稿する", class: "send" %>
+        </div>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
+  </div>

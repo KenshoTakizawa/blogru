@@ -127,6 +127,7 @@ Things you may want to cover:
 | teach_detail       | text        | null: false                    |
 | teacher_history    | text        | null: false                    |
 | nickname           | string      | null: false                    |
+| plan_id            | integer     | null: false                    |
 
 ### Association
 

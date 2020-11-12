@@ -35,6 +35,11 @@
     <%= f.text_area :teacher_history, autofocus: true, autocomplete: "teacher-history" %>
   </div>
 
+  <div class="field">
+    <%= f.label :price, "生徒さんに教えてあげる時の月額" %><br />
+    <%= f.number_field :price, autofocus: true, autocomplete: "price" , placeholder: "半角数字で入力してください"%>
+  </div>
+
   <div class="actions">
     <%= f.submit "更新する" %>
   </div>

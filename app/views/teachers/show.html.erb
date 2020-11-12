@@ -21,6 +21,23 @@
   <div class="introduce-container">
     <div class="introduce">
       <p>自己紹介</p>
+
+      <div id="teacher-rate">
+      <div id="star<%= @teacher.id%>"></div>    
+        <script>
+          $('#star<%= @teacher.id%>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half      : true,
+            readOnly: true,
+            score: <%= @teacher.teacher_evaluations.average(:rate).to_f.round(2) %>,
+          });
+        </script>
+      </div>
+
+
       <div class="profile-history">
         <%= @teacher.teach_content %>
       </div>
@@ -33,8 +50,49 @@
         <%= @teacher.teacher_history %>
       </div>
 
+      <%= link_to 'このTeacherと契約する', teacher_orders_path(@teacher.id)%>
+
+      <%# <form action="/pay" method="post">
+        <script
+          type="text/javascript"
+          src="https://checkout.pay.jp/"
+          class="payjp-button"
+          data-key="pk_test_26d14dbc4f13273ff618e9cc"
+          data-payjp="b288cdf4933668ea2257575ecdbedb02f37fbd1a">
+          data-submit-text="トークンを作成する"
+          data-partial="true">
+        </script> %>
+      </form>
+
+      
+
       <%= link_to '編集する', edit_teacher_registration_path(@teacher.id), class: 'teacher-edit'%>
+      <%= link_to '評価する', new_teacher_teacher_evaluation_path(@teacher.id), class: 'teacher-evaluation'%>
+
       <%# <%= link_to '削除', teacher_path(@profile.id), method: :delete, class:'profile-destroy' %> 
     </div>
+
+    <h3>口コミ一覧</h3>
+    <% @teacher_evaluations.each do |evaluation|%>
+
+      <div class=card>
+        <p>内容:<%= evaluation.review%></p>
+        <p>評価 :<%= evaluation.rate%>点</p>
+        <div id="star-rate<%= evaluation.id%>"></div>    
+        <script>
+          $('#star-rate<%= evaluation.id%>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half      : true,
+            readOnly: true,
+            score: <%= evaluation.rate %>,
+          });
+        </script>
+      </div>
+    <% end %>
+
+
   </div>
 </div>

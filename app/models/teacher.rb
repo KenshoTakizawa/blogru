@@ -2,8 +2,14 @@ class Teacher < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :plan
 
   has_one_attached :image
+
+  has_many :orders
+  has_many :teacher_evaluations
+  has_many :teacher_comments
 
 
 
@@ -15,7 +21,7 @@ class Teacher < ApplicationRecord
 
 
 
-
+  validates :plan_id, numericality: { other_than: 1 } 
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

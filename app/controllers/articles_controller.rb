@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
+    @teacher_comment = TeacherComment.new
+    @teacher_comment = @article.teacher_comments.includes(:teacher)
   end
 
   def new

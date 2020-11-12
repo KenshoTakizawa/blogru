@@ -10,6 +10,7 @@ class DeviseCreateTeachers < ActiveRecord::Migration[6.0]
       t.text :teach_detail, null: false
       t.text :teacher_history, null: false
       t.string :nickname, null: false
+      t.integer :plan_id, null: false
 
       ## Recoverable
       t.string   :reset_password_token

@@ -15,6 +15,11 @@
         <li class="item">
           <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
         </li>
+        <% if current_user.profile.blank?%>
+        <li class="item">
+          <%= link_to 'プロフィールを作成する', new_profile_path%>
+        </li>
+        <% end%>
         <% elsif current_admin %>
         <li class="item">
           <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "logout" %>
@@ -53,9 +58,11 @@
     </div>
     <div class="aicon">
       <% if user_signed_in? %>
+        <% if current_user.profile.present?%>
         <%= link_to profile_path(current_user.profile.id) do %>
         <%= image_tag current_user.profile.image, class: "user-image"%>
         <% end%>
+        <%end%>
       <% elsif teacher_signed_in? %>
         <%= link_to teachers_show_path(current_teacher.id) do %>
         <%  if current_teacher.image.attached? %>

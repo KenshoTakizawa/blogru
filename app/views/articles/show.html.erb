@@ -14,43 +14,46 @@
   <%= link_to '編集する', edit_article_path(@article.id), class: 'article-edit'%>
   <%= link_to '削除', article_path(@article.id), method: :delete, class:'article-destroy' %>
 
-  <div class="teacher-container">
-      <% if (@article.user.id == current_user.id) || current_teacher %>
-      <% if current_teacher %>
-        <%= form_with(model: [@article, @teacher_comment], url: article_teacher_comment_path(@article.id), local: true) do |form| %>
-        
-          <%=image_tag current_teacher.image , class: "teacher-image"%>
-        
 
-          <%= form.text_area :content, placeholder: "コメントする", rows: "1", class: "comment-area" %>
-          <div class="submit">
-          <%= form.submit "コメントする", class: "send" %>
-          </div>
-        <% end %>
-      <% end%>
-      <% else %>
-      <% end %>
-      <div class="teacher-comments">
-        <h4>＜Teacherのコメント一覧＞</h4>
-        <% if @teacher_comments %>
-        
-          <% @teacher_comments.each do |comment| %>
-          <div class="comment">
-            <div class="commenter-image">
-            <%=image_tag teacher_comments.teacher.image, class: "image"%>
-            </div>
-            <div class="main-content">
-                <%= link_to teacher_comments.teacher.nickname, profile_path(comment.user.profile.id), class: "name" %>
-                <div class="content">
-                <%= comment.content %>
-                </div>
-            </div>
-          </div>
-          <% end %>
-        
-        <% end %>
+<% if (@article.user.id == current_user.id) or current_teacher %>
+  <div class="teacher-container">
+  <% if current_teacher %>
+    <%= form_with(model: [@article, @teacher_comment], url: article_teacher_comment_path(@article.id), local: true) do |form| %>
+    
+      <%=image_tag current_teacher.image , class: "teacher-image"%>
+    
+
+      <%= form.text_area :content, placeholder: "コメントする", rows: "1", class: "comment-area" %>
+      <div class="submit">
+      <%= form.submit "コメントする", class: "send" %>
       </div>
-  </div>
+    <% end %>
+  <% end%>
+  <div class="teacher-comments">
+  <h4>＜Teacherのコメント一覧＞</h4>
+  <% if @teacher_comments %>
+  
+    <% @teacher_comments.each do |comment| %>
+    <div class="comment">
+      <div class="commenter-image">
+      <%=image_tag teacher_comments.teacher.image, class: "image"%>
+      </div>
+      <div class="main-content">
+          <%= link_to teacher_comments.teacher.nickname, profile_path(comment.user.profile.id), class: "name" %>
+          <div class="content">
+          <%= comment.content %>
+          </div>
+      </div>
+    </div>
+    <% end %>
+  
+  <% end %>
+</div>
+</div>
+<% else %>
+<% end %>
+
+
 
   <div class="comment-container">
       <% if current_user %>

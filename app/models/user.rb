@@ -5,10 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :articles
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :orders
-  has_many :teacher_evaluations
+  has_many :teacher_evaluations, dependent: :destroy
   has_one :profile, dependent: :destroy
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   # def making_customer(email)
   #   if customer_id==nil

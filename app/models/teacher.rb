@@ -8,8 +8,8 @@ class Teacher < ApplicationRecord
   has_one_attached :image
 
   has_many :orders
-  has_many :teacher_evaluations
-  has_many :teacher_comments
+  has_many :teacher_evaluations, dependent: :destroy
+  has_many :teacher_comments, dependent: :destroy
 
 
 

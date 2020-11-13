@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     resources :teacher_comments, only: [:create, :destroy]
   end
 
+  resources :notifications, only: :index
+  delete :notifications, to: 'notifications#destroy_all'
+
+
   resources :profiles
   resources :tutorials
 end

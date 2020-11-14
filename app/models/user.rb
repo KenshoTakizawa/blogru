@@ -10,37 +10,16 @@ class User < ApplicationRecord
   has_many :teacher_evaluations, dependent: :destroy
   has_one :profile, dependent: :destroy
 
+  has_many :likes, dependent: :destroy
+  has_many :liked_articles, through: :likes, source: :article
+
+
+
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
-   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+    has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
-  # def making_customer(email)
-  #   if customer_id==nil
-  #   Payjp.api_key = 'sk_test_a0ee0acb360002040aec8eb6'
-  #   customer=Payjp::Customer.create(
-  #       email:email,
-  #       description: 'test',
-  #       card: params["token"]
-  #   )
-  #   update(customer_id:customer.id)
-  #   else
-  #     customer_id_check
-  #   end
-  # end
+  def already_liked?(article)
+    self.likes.exists?(article_id: article.id)
+  end
 
-  # def customer_id_check
-  #   begin
-  #   Payjp.api_key = 'sk_test_a0ee0acb360002040aec8eb6'
-  #   check = Payjp::Customer.retrieve("#{customer_id}")
-  #   rescue Payjp::InvalidRequestError=> e
-  #     update(customer_id:nil)
-  #   end
-  # end
-
-  # def subscription(current_user)
-  #   Payjp.api_key = 'sk_test_a0ee0acb360002040aec8eb6'
-  #   Payjp::Subscription.create(
-  #       plan: 'kensho1',
-  #       customer: "#{current_user.customer_id}"
-  #   )
-  # end
 end

@@ -9,6 +9,9 @@ class Article < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
+
   has_one_attached :image
   has_rich_text :content
 
@@ -48,6 +51,6 @@ def save_notification_comment!(current_user, comment_id, visited_id)
       notification.checked = true
     end
     notification.save if notification.valid?
- end
+  end
 
 end

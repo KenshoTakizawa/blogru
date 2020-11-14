@@ -25,6 +25,15 @@
         <%= @profile.birth_date %>
       </div>
 
+      <div class="liked-content">
+      <h3>いいねしている投稿</h3>
+      <% @profile.user.liked_articles.each do |article| %>
+        <%= article.user.profile.nickname %>
+        <%= article.content %>
+      <% end %>
+      </div>
+
+
       <%= link_to '編集する', edit_profile_path(@profile.id), class: 'profile-edit'%>
       <%= link_to '削除', profile_path(@profile.id), method: :delete, class:'profile-destroy' %>
     </div>

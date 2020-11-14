@@ -19,7 +19,12 @@
                 <div class="article-title">
                   <%= article.title %>
                 </div>
-              <% end%>
+
+                <p><%= article.liked_users.count %>いいね</p>
+                
+                <% end%>
+              
+              
             </div>
           <% end %>
         </div>

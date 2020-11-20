@@ -2,12 +2,287 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container {
-  .card-form {
 
+#orders-index {
+  
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 680px;
+    
+    .nickname {
+      background-color: #57bbac;
+      display: inline-block;
+      padding: 8px 20px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 30%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .s-container {
+      display: flex;
+      justify-content: center;
+      
 
-    .price-hidden {
-      display: none;
+      .input-layout {
+        margin-bottom: 40px;
+        font-weight: bold;
+        min-width: 300px;
+
+        .button {
+          width: 100%;
+          border-radius: 5px;
+          text-align: center;
+          padding: 10px 0;
+          transition: .4s;
+
+          display: inline-block;
+          border: 2px solid #57bbac;
+          font-size: 16px;
+          color: #57bbac;
+          text-decoration: none;
+          font-weight: bold;
+
+        }
+        .button:hover {
+          background-color: #57bbac;
+          border-color: #EEFFFF;
+          color: #FFF;
+        }
+        .card-form {
+          
+          
+          .price-hidden {
+            display: none;
+          }
+
+          .form-wrap{
+            margin: 15px 0;
+
+            .indispensable {
+              background-color: #ea352d;
+              color: white;
+              padding: 5px 7px;
+              border-radius: 5px;
+            }
+
+            input[type="text"].number {
+              border: 1px solid #333;
+              width: 100%;
+              border-radius: 5px;
+              margin: 5px 0;
+              padding: 10px 5px;
+            }
+            input[type="text"].cvc {
+              border: 1px solid #333;
+              width: 100%;
+              border-radius: 5px;
+              margin: 5px 0;
+              padding: 10px 5px;
+            }
+            .p-wrap {
+              display: flex;
+              align-items: center;
+
+              .indispensable {
+                margin-left: 5px;
+                padding: 1px 7px;
+              }
+            }
+            .input-expiration-date-wrap {
+              display: block;
+
+              .month {
+                display: flex;
+                align-items: center;
+                p {
+                  margin-left: 10px;
+                }
+                input[type="text"].exp_month {
+                  border: 1px solid #333;
+                  border-radius: 5px;
+                  margin: 5px 0;
+                  padding: 0 5px;
+                  width: 120px;
+                }
+              }
+              .year {
+                display: flex;
+                align-items: center;
+                p {
+                  margin-left: 10px;
+                }
+                input[type="text"].exp_year {
+                  border: 1px solid #333;
+                  border-radius: 5px;
+                  margin: 5px 0;
+                  padding: 0 5px;
+                  width: 120px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
+}
+
+.transaction-contents {
+  width: 100vw;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-main {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 10vw;
+}
+
+.transaction-title-text {
+  text-align: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* 購入内容の表示 */
+.buy-item-info {
+  height: 150px;
+  border-bottom: 2px solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-item-img {
+  margin-right: 20px;
+  height: 130px;
+  width: 250px;
+  object-fit: contain;
+}
+
+.buy-item-right-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-item-text {
+  font-size: 20px;
+}
+
+.buy-item-price {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.item-price-text {
+  font-size: 15px;
+}
+
+.item-price-sub-text {
+  font-size: 12px;
+}
+
+/* /購入内容の表示 */
+
+/* 支払額の表示 */
+.item-payment {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: bold;
+}
+
+.item-payment-title {
+  font-size: 20px;
+}
+
+.item-payment-price {
+  font-size: 25px;
+}
+
+/* /支払額の表示 */
+
+/* カード情報の入力 */
+.credit-card-form {
+  border-bottom: 2px solid #f5f5f5;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.info-input-haedline {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.available-card {
+  display: flex;
+  height: 35px;
+}
+
+.card-logo {
+  width: 40px;
+  margin: 5px 5px;
+}
+
+.input-expiration-date-wrap {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 55px;
+}
+
+.input-expiration-date {
+  width: 20%;
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+/* /カード情報の入力 */
+
+/* 配送先の入力 */
+.shipping-address-form {
+  margin-top: 15px;
+}
+
+.form-any {
+  background: #ccc;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.buy-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.buy-red-btn {
+  width: 100%;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
 }

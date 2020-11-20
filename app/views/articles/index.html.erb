@@ -14,13 +14,16 @@
                 <div class="article-img-content">
                   <%= image_tag article.image, class: "article-image"%>
                 </div>
+                <% else%>
+                <div class="damy">
+                </div>
 
                 <% end%>
                 <div class="article-title">
                   <%= article.title %>
                 </div>
 
-                <p><%= article.liked_users.count %>いいね</p>
+                <p><%= article.liked_users.count %><i class="fas fa-heart unlike-btn"></i></p>
                 
                 <% end%>
               
@@ -37,7 +40,7 @@
 
         <% @teachers.each do |teacher|%>
             <div class="teacher-content">
-              <%= link_to teachers_show_path(teacher.id), class: "teacher-a" do %>
+              <%= link_to teachers_show_path(id: teacher.id), class: "teacher-a" do %>
                 <% if teacher.image.attached? %>
                 <div class="teacher-img-content">
                   <%= image_tag teacher.image, class: "teacher-image"%>

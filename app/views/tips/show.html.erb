@@ -1,0 +1,25 @@
+<div class="container">
+<div class="tip-container">
+  <h2>
+    <%= @tip.title %>
+  </h2>
+  <% if @tip.image.present? %>
+    <div class="samune">
+      <%= image_tag @tip.image, class: "tip-image"%>
+    </div>
+  <% end%>
+  <div class="tip-content">
+    <%= @tip.content %>
+  </div>
+</div>
+
+<% if current_admin%>
+
+  <div class="button-container">
+  <%= link_to '編集する', edit_tip_path(@tip.id), class: 'tip-edit'%>
+  <%= link_to '削除', tip_path(@tip.id), method: :delete, class:'tip-destroy' %>
+  </div>
+
+<%end%>
+  
+</div>

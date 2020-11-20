@@ -7,9 +7,6 @@
       <ul class="menu">
       <% if user_signed_in? %>
         <li class="item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-        </li>
-        <li class="item">
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>
         <li class="item">
@@ -20,17 +17,9 @@
           <%= link_to 'プロフィールを作成する', new_profile_path%>
         </li>
 
-        
-
-
         <% end%>
 
-        <% if unchecked_notifications.any? %>
-            <i class="fa fa-circle" style="color: gold;"></i>
-        <% end %>
-        <li class="item">
-            <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
-        </li>
+        
 
 
         <% elsif current_admin %>
@@ -41,15 +30,12 @@
           <%= link_to 'tutorial一覧', tutorials_path, class: "tutorial-contents"%>
         </li>
         <li class="item">
-          <%= link_to 'tips一覧', "#", class: "tips-contents"%>
+          <%= link_to 'tips一覧', tips_path, class: "tips-contents"%>
         </li>
         <% elsif current_teacher %>
 
         <li class="item">
-          <%= link_to 'ログアウト', destroy_teacher_session_path, method: :delete, class: "logout" %>
-        </li>
-        <li class="item">
-          <%= link_to 'tips一覧', "#", class: "tips-contents"%>
+          <%= link_to 'tips一覧', tips_path, class: "tips-contents"%>
         </li>
 
         <% else %>
@@ -67,8 +53,20 @@
     </div>
   </div>
   <div class="right-side">
-    <div class="search-window">
+    <% if current_user %>
+    <div class="noti">
+    <div class="noti2">
+        <% if unchecked_notifications.any? %>
+            <i class="fas fa-circle"></i>
+        <% end %>
+        <div class="item">
+            <%= link_to notifications_path do %>
+            <i class="far fa-bell"></i>
+            <% end%>
+        </div>
     </div>
+    </div>
+    <% end%>
     <div class="aicon">
       <% if user_signed_in? %>
         <% if current_user.profile.present?%>
@@ -77,7 +75,7 @@
         <% end%>
         <%end%>
       <% elsif teacher_signed_in? %>
-        <%= link_to teachers_show_path(current_teacher.id) do %>
+        <%= link_to teachers_show_path(id: current_teacher.id) do %>
         <%  if current_teacher.image.attached? %>
         <%= image_tag current_teacher.image, class: "teacher-img"%>
         <% else%>

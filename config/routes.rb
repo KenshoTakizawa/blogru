@@ -26,14 +26,22 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'articles#index'
   resources :articles do
+    
     resources :comments, only: [:create, :destroy]
     resources :teacher_comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
 
+
+
+
   resources :notifications, only: :index
   delete :notifications, to: 'notifications#destroy_all'
 
-  resources :profiles
+  resources :profiles do
+    get 'user_index'
+  end
+
   resources :tutorials
+  resources :tips
 end

@@ -1,7 +1,7 @@
 class TeacherCommentsController < ApplicationController
 
   def index
-    @teacher_comments = Comment.all
+    @teacher_comments = TeacherComment.all
   end
 
   def create

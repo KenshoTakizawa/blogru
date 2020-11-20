@@ -2,6 +2,86 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+#profiles-new, #profiles-create, #profiles-edit {
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    h2 {
+      margin-top: 20px;
+      margin-left: 30%;
+      margin-right: 33%;
+      margin-bottom: 20px;
+      color: #57bbac;
+    }
+    .form-group {
+      margin-left: 33%;
+      margin-right: 37%;
+      margin-bottom: 20px;
+      .field-container {
+        margin-right: 20px;
+        input[type="email"], input[type="password"], input[type="text"], input[type="number"]{
+          width: 420px;
+          height: 40px;
+          margin-bottom: 10px;
+          padding-left: 15px;
+          border: 1px solid #333;
+          border-radius: 5px;
+        }
+        textarea {
+          width: 420px;
+          height: 250px;
+          margin-bottom: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+          padding-top: 8px;
+          border: 1px solid #333;
+          border-radius: 5px;
+        }
+        .input-birth-wrap {
+          
+          label {
+            border-right: 5px;
+          }
+          .date-input {
+            display: flex;
+            select {
+              border: 1px solid #333;
+              border-radius: 5px;
+              padding: 3px 15px 3px 5px;
+            }
+          }
+        }
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 20px;
+
+        input[type="submit"] {
+  
+          max-width: 180px;
+          text-align: center;
+          border: 2px solid #57bbac;
+          font-size: 16px;
+          color: #57bbac;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 8px 16px;
+          border-radius: 4px;
+          transition: .4s;
+          margin: 10px 0 10px 30px;
+        }
+        input[type="submit"]:hover {
+          background-color: #57bbac;
+          border-color: #EEFFFF;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
 #profiles-show {
   .container {
     
@@ -22,23 +102,309 @@
         border-radius: 50%;
         border: 5px solid #57bbac;
       }
+      .fake-image {
+        width: 145px;
+        height: 145px;
+        border-radius: 50%;
+        border: 5px solid #57bbac;
+        background-color: white;
+      }
     }
     .introduce-container {
       max-width: 1180px;
-      height: 480px;
       margin-top: 90px;
       margin-left: 160px;
       .introduce {
-        width: 63%;
-        height: 200px;
+        width: 730px;
+        min-height: 400px;
         padding: 30px;
         background-color: white;
 
         p {
           font-size: 22px;
+          font-weight: bold;
+          color: rgb(37, 37, 37);
+          
+        }
+        p.h2 {
+          margin-bottom: 20px;
+        }
+
+        .profile-history {
+
+          padding: 5px 7px;
+          margin-bottom: 10px;
+          width: 500px;
+          p {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+          }
+        }
+
+        .profile-purpose {
+
+          padding: 5px 7px;
+          margin-bottom: 10px;
+          width: 500px;
+          p{
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+          }
+        }
+        .follow-teacher {
+
+          padding: 5px 7px;
+          margin-bottom: 10px;
+          width: 500px;
+          p {
+            font-size: 18px;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+          }
+          .user-teachers {
+
+            .teacher {
+              text-decoration: none;
+            }
+            .teacher-image {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        .iine {
+          padding: 5px 7px 0 7px;
+          p.like{
+            font-size: 18px;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+            
+          }
+        }
+        
+        .liked-content {
+          margin-top: 10px;
+          max-height: 440px;
+          overflow: scroll;
+          padding: 5px 7px;
+          
+          
+          .par-article {
+            display: flex;
+            .post-a {
+              height: 100px;
+              width: 580px;
+              background-color: white;
+              box-shadow: 0 3px 0 rgba(136,136,136,1);
+              box-shadow: 3px 3px 6px gray;
+              transition: .4s;
+              display: flex;
+              border-radius: 5px;
+              margin-bottom: 10px;
+              text-decoration: none;
+  
+              .article-title {
+                font-weight: bold;
+                color: #333;
+                padding: 10px 5px;
+                font-size: 14px;
+
+              }
+  
+              .image-a {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+              }
+              .damy {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+                background-color: gray;
+              }
+            }
+            .post-a:hover {
+              box-shadow: 1px 1px 2px rgba(136,136,136,1);
+            }
+          }
+          
+        }
+        .profile-links {
+          .par-link {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+
+            .logout {
+              display: inline-block;
+              max-width: 180px;
+              text-align: left;
+              border: 2px solid#fb5a68;
+              font-size: 16px;
+              color: #fb5a68;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 8px 16px;
+              border-radius: 4px;
+              transition: .4s;
+              margin: 10px 5px;
+            }
+            .logout:hover {
+              background-color: #fb5a68;
+              border-color: #ffeeef;
+              color: #FFF;
+            }
+            .profile-edit {
+              display: inline-block;
+              max-width: 180px;
+              text-align: left;
+              border: 2px solid#07b2e6;
+              font-size: 16px;
+              color: #07b2e6;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 8px 16px;
+              border-radius: 4px;
+              transition: .4s;
+              margin: 10px 5px;
+
+            }
+            .profile-edit:hover {
+              background-color: #07b2e6;
+              border-color: #EEFFFF;
+              color: #FFF;
+            }
+            .fake {
+              max-width: 180px;
+            }
+            .user-index {
+              display: inline-block;
+              max-width: 180px;
+              text-align: left;
+              border: 2px solid #57bbac;
+              font-size: 16px;
+              color: #57bbac;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 8px 16px;
+              border-radius: 4px;
+              transition: .4s;
+              margin: 10px 5px;
+            }
+            .user-index:hover {
+              background-color: #57bbac;
+              border-color: #EEFFFF;
+              color: #FFF;
+            }
+            .profile-destroy {
+              display: inline-block;
+              max-width: 180px;
+              text-align: left;
+              border: 2px solid #e42c5a;
+              font-size: 16px;
+              color: #e42c5a;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 8px 16px;
+              border-radius: 4px;
+              transition: .4s;
+              margin: 10px 5px;
+            }
+            .profile-destroy:hover {
+              background-color: #e42c5a;
+              border-color: #fde6e9;
+              color: #FFF;
+            }
+          }
         }
       }
     }
   }
 }
-// ########################teacherのやつ
+
+#profiles-user_index {
+  .container {
+    max-width: 1180px;
+      margin: 0 auto;
+    .recent-posts {
+      h3 {
+          font-size: 24px;
+          color: rgb(51, 51, 51);
+          padding: 10px 0;
+      }
+      .post-wrapper {
+        display: flex;
+
+        .post-contents {
+          width: 60%;
+          height: 620px;
+          padding: 10px 20px;
+          overflow: scroll;
+          
+          .post-content{
+            
+            height: 100px;
+            background-color: white;
+            box-shadow: 0 3px 0 rgba(136,136,136,1);
+            box-shadow: 3px 3px 6px gray;
+            transition: .4s;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            
+            .post-a {
+              text-decoration: none;
+              color: #333;
+              .unlike-btn {
+                width: 20px;
+                height: 27px;
+                font-size: 20px;
+                color: #e54747;
+                margin-left: 3px;
+                }
+            }
+            a {
+              display: flex;
+              position: relative;
+              .article-title {
+                padding: 10px;
+                font-size: 14.4px;
+                font-weight: bold;
+                text-decoration: none;
+              }
+              
+              p {
+                position: absolute;
+                margin: 70px 0 0 92%;
+              }
+            }
+
+          }
+          .post-content:hover {
+            box-shadow: 1px 1px 2px rgba(136,136,136,1);
+            }
+          .article-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+          }
+          .damy {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

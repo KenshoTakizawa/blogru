@@ -1,0 +1,35 @@
+<div class="background">
+<div class="container">
+  <%if current_admin%>
+  <div class="bottun-area">
+    <%= link_to '投稿する', new_tip_path, class: 'tip-post'%>
+  </div>
+  <% end%>
+  <h3 class="tip">人気TeacherになるTips</h3>
+  <div class="tip-contents">
+    <div class="contents">
+      <% if @tips.present?%>
+        <% @tips.each do |tip|%>
+        <div class="content">
+          <%= link_to tip_path(tip.id), class: 'tip-a' do %>
+            <% if tip.image.present? %>
+            <div class="tip-img-content">
+              <%= image_tag tip.image, class: "tip-image"%>
+            </div>
+            <% else%>
+            <div class="fake-image">
+            </div>
+            <% end%>
+
+            <div class="tip-title">
+              <%= tip.title %>
+            </div>
+          <% end%>
+        </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+
+</div>
+</div>

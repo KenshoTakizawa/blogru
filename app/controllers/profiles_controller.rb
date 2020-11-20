@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
   def update
     profile = Profile.find(params[:id])
     if profile.update(profile_params)
-      redirect_to profile_path(@profile.id)
+      redirect_to profile_path(params[:id])
     else
       render :edit
     end
@@ -33,6 +33,11 @@ class ProfilesController < ApplicationController
     profile = Profile.find(params[:id])
     profile.destroy
     redirect_to root_path
+  end
+
+  def user_index
+    @user = Profile.find(params[:profile_id]).user
+    @articles = @user.articles.order("created_at DESC")
   end
 
   private

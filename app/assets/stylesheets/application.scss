@@ -16,7 +16,7 @@
  *= require_tree .
  */
 
- @import "font-awesome-sprockets";
+@import "font-awesome-sprockets";
 @import "font-awesome";
 
 
@@ -85,7 +85,7 @@ li:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 30%;
+  width: 110px;
   height: 60px;
 }
 
@@ -96,11 +96,43 @@ li:hover {
   background-color: aqua;
 }
 
+.btn-default {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #57bbac;
+  padding: 25px 8px;
+}
+
+.btn-default:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.noti {
+  padding-top: 5px;
+  .noti2 {
+    position: relative;
+    .fa-circle {
+      position: absolute;
+      color: #57bbac;
+    }
+
+    .fa-bell {
+      width: 28px;
+      height: 28px;
+      font-size: 28px;
+      color: #57bbac;
+      margin-left: 3px;
+    }
+  }
+}
+
 .aicon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: aquamarine;
+  
   
 }
 
@@ -108,12 +140,14 @@ li:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: 2px solid #57bbac;
 }
 
 .teacher-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: 2px solid #57bbac;
 }
 
 .fake-aicon {
@@ -121,4 +155,18 @@ li:hover {
   height: 40px;
   border-radius: 50%;
   background-color: #57bbac;
+  border: 2px solid #57bbac;
+}
+
+
+.notice {
+  margin-left: 170px;
+  margin-bottom: 5px;
+  width: 250px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #6efbe9;
+  border-radius: 5px;
+  text-align: center;
+
 }

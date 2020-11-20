@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit]
+  before_action :authenticate, except: [:index, :show]
 
 
   def index
@@ -12,7 +13,7 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
     @teacher_comment = TeacherComment.new
-    @teacher_comment = @article.teacher_comments.includes(:teacher)
+    @teacher_comments = @article.teacher_comments.includes(:teacher)
     @like = Like.new
   end
 
@@ -47,9 +48,17 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  
+
 
 
   private
+
+  def authenticate
+    unless current_user
+      redirect_to new_user_session_path
+    end
+  end
 
   def find_article
     @article = Article.find(params[:id])

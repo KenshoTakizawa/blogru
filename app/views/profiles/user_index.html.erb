@@ -1,0 +1,33 @@
+<div class="container">
+
+<div class="recent-posts">
+      <h3> <%= @user.profile.nickname%>の投稿</h3>
+      <div class="post-wrapper">
+        <div class="post-contents">
+          <% @articles.each do |article|%>
+            <div class="post-content">
+              <%= link_to article_path(article.id), class: "post-a" do %>
+                <% if article.image.present? %>
+                <div class="article-img-content">
+                  <%= image_tag article.image, class: "article-image"%>
+                </div>
+                <% else%>
+                <div class="damy">
+                </div>
+
+                <% end%>
+                <div class="article-title">
+                  <%= article.title %>
+                </div>
+
+                <p><%= article.liked_users.count %><i class="fas fa-heart unlike-btn"></i></p>
+                
+                <% end%>
+              
+              
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

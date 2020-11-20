@@ -1,4 +1,5 @@
 <div class="container">
+<div class="tutorial-container">
   <h2>
     <%= @tutorial.title %>
   </h2>
@@ -10,8 +11,15 @@
   <div class="tutorial-content">
     <%= @tutorial.content %>
   </div>
+</div>
 
-  <%= link_to '編集する', edit_tutorial_path(@tutorial.id), class: 'tutorial-edit'%>
-  <%= link_to '削除', tutorial_path(@tutorial.id), method: :delete, class:'tutorial-destroy' %>
+<% if current_admin%>
+
+  <div class="button-container">
+    <%= link_to '編集する', edit_tutorial_path(@tutorial.id), class: 'tutorial-edit'%>
+    <%= link_to '削除', tutorial_path(@tutorial.id), method: :delete, class:'tutorial-destroy' %>
+  </div>
+
+  <% end%>
   
 </div>

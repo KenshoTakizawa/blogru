@@ -11,7 +11,8 @@
   #error_explanation li{
     margin-left: 35%;
     margin-right: 33%;
-    background-color: blue;
+    background-color: rgb(248, 159, 159);
+    list-style: none;
     
   }
   .form-group {
@@ -26,24 +27,33 @@
       border: 1px solid #333;
       border-radius: 5px;
     }
-    input[type="submit"] {
-      margin-left: 40%;
-      margin-right: 40%;
+    .actions {
+      display: flex;
+      justify-content: center;
 
+      input[type="submit"] {
 
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border-bottom: solid 2px #627295;
-      border-radius: 5px;
-    }
-    input[type="submit"]:active {
-      /*ボタンを押したとき*/
-      -webkit-transform: translateY(4px);
-      transform: translateY(4px);/*下に動く*/
-      border-bottom: none;/*線を消す*/
+  
+  
+        display: inline-block;
+        max-width: 180px;
+        text-align: left;
+        border: 2px solid #57bbac;
+        font-size: 16px;
+        color: #57bbac;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin: 10px 5px;
+        background-color: white;
+      }
+      input[type="submit"]:hover{
+        background-color: #57bbac;
+        border-color: #EEFFFF;
+        color: #FFF;
+      }
     }
   }
 }
@@ -61,7 +71,7 @@
   #error_explanation li{
     margin-left: 35%;
     margin-right: 33%;
-    background-color: blue;
+    background-color: rgb(255, 198, 198);
     
   }
   .form-group {
@@ -75,25 +85,31 @@
       padding-left: 15px;
       border: 1px solid #333;
       border-radius: 5px;
+      padding-right: 15px;
     }
-    input[type="submit"] {
-      margin-left: 40%;
-      margin-right: 40%;
-
-
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border-bottom: solid 2px #627295;
-      border-radius: 5px;
-    }
-    input[type="submit"]:active {
-      /*ボタンを押したとき*/
-      -webkit-transform: translateY(4px);
-      transform: translateY(4px);/*下に動く*/
-      border-bottom: none;/*線を消す*/
+    .actions {
+      display: flex;
+      justify-content: center;
+      input[type="submit"] {
+        display: inline-block;
+        max-width: 180px;
+        text-align: left;
+        border: 2px solid #57bbac;
+        font-size: 16px;
+        color: #57bbac;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin: 10px 5px;
+        background-color: white;
+      }
+      input[type="submit"]:hover{
+        background-color: #57bbac;
+        border-color: #EEFFFF;
+        color: #FFF;
+      }
     }
   }
 }

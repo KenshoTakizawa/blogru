@@ -1,40 +1,63 @@
 <div class="container">
-  <div class="nickname">
-    <%= @teacher.nickname %>
-  </div>
-
-  
-
-  <%= form_with  model: @order, url: teacher_orders_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
-  <%= render 'layouts/error_messages', model: @order %>
-  <div class='form-wrap'>
-    <div class="price">
-      <%= @teacher.plan.name %>円
+<div class="nickname">
+      <%= @teacher.nickname %>
     </div>
-  </div>
+  <div class="s-container">
+    
 
-  <div class='form-wrap'>
-    <%= f.number_field :price, class:"price-hidden", value: @teacher.plan.name%>
-  </div>
-
-  <div class='form-wrap'>
-    <%= f.label :number,  "カード番号" %>
-    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
-  </div>
-  <div class='form-wrap'>
-    <%= f.label :cvc ,"ＣＶＣ" %>
-    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
-  </div>
-  <div class='form-wrap'>
-    <p>有効期限</p>
-    <div class='input-expiration-date-wrap'>
-      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
-      <p>月</p>
-      <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
-      <p>年</p>
+    
+  <div class="input-layout">
+    <%= form_with  model: @order, url: teacher_orders_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+    <%= render 'layouts/error_messages', model: @order %>
+    <div class='form-wrap'>
+      <div class="price">
+        <div>月額：<%= @teacher.plan.name %>円</div>
+      </div>
     </div>
+
+    <div class='form-wrap'>
+      <%= f.number_field :price, class:"price-hidden", value: @teacher.plan.name%>
+    </div>
+
+    <div class='form-wrap'>
+      <div class='form-text-wrap'>
+        <%= f.label :number,  "カード番号" %>
+        <span class="indispensable">必須</span>
+      </div>
+        <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+        <div class='available-card'>
+            <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+            <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+            <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+            <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+          </div>
+    </div>
+    <div class='form-wrap'>
+      <div>
+        <%= f.label :cvc ,"ＣＶＣ" %>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+    </div>
+    <div class='form-wrap'>
+      <div class="p-wrap">
+        <p>有効期限</p>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class='input-expiration-date-wrap'>
+      <div class="month">
+        <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
+        <p>月</p>
+      </div>
+      <div class="year">
+        <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
+        <p>年</p>
+      </div>
+      </div>
+    </div>
+    <%= f.submit "購入する" ,class:"button" %>
+    <% end %>
   </div>
-  <%= f.submit "購入" ,class:"button" %>
-<% end %>
+  </div>
 
 </div>

@@ -1,8 +1,10 @@
 <div class="background">
 <div class="container">
+  <% if current_admin%>
   <div class="bottun-area">
     <%= link_to '投稿する', new_tutorial_path, class: 'tutorial-post'%>
   </div>
+  <% end%>
   <h3 class="seo">SEOの学習教材</h3>
   <div class="seo-contents">
     <div class="contents">

@@ -50,11 +50,13 @@
 
   <div class="field">
     <%= f.label :plan_id, "生徒さんに教えてあげる時の月額" %><br />
-    <%= f.collection_select(:plan_id, Plan.all, :id, :name, {}, {class:"plan-select"}) %>
+    <div class="plan-yen">
+    <%= f.collection_select(:plan_id, Plan.all, :id, :name, {}, {class:"plan-select"}) %><p>円</p>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録する" %>
   </div>
 <% end %>
 

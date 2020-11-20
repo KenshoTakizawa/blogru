@@ -1,4 +1,6 @@
 class TeacherEvaluationsController < ApplicationController
+  before_action :do_sign
+  before_action :only_user
 
   def new
     @teacher_evaluation = TeacherEvaluation.new
@@ -16,6 +18,18 @@ class TeacherEvaluationsController < ApplicationController
 
 
   private
+
+  def do_sign
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  def only_user
+    if current_teacher
+      redirect_to root_path
+    end
+  end
 
   def evaluation_params
     params.require(:teacher_evaluation).permit(:review, :rate).merge(user_id: current_user.id, teacher_id: params[:teacher_id])

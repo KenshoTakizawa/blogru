@@ -38,60 +38,95 @@
       </div>
 
 
-      <div class="profile-history">
+      <div class="block">
+        <p>教えられる内容</p>
+        <div>
         <%= @teacher.teach_content %>
+        </div>
       </div>
 
-      <div class="profile-purpose">
-        <%= @teacher.teach_detail %>
+      <div class="block">
+        <p>教えられる内容の詳細</p>
+        <div>
+        <%= @teacher.teach_content %>
+        </div>
       </div>
 
-      <div class="profile-birth">
+      <div class="block">
+        <p>経歴</p>
+        <div>
         <%= @teacher.teacher_history %>
+        </div>
       </div>
 
-      <%= link_to 'このTeacherと契約する', teacher_orders_path(@teacher.id)%>
+      <div class="block">
+        <p>月額</p>
+        <div>
+        <%= @teacher.plan.name%>円
+        </div>
+      </div>
 
-      <%# <form action="/pay" method="post">
-        <script
-          type="text/javascript"
-          src="https://checkout.pay.jp/"
-          class="payjp-button"
-          data-key="pk_test_26d14dbc4f13273ff618e9cc"
-          data-payjp="b288cdf4933668ea2257575ecdbedb02f37fbd1a">
-          data-submit-text="トークンを作成する"
-          data-partial="true">
-        </script> %>
-      </form>
+      <% if current_teacher == @teacher%>
+      <div class="block">
+        <p>1ヶ月の収益</p>
+        <div>
+        <%= @profit    %>円
+        </div>
+      </div>
+      <% end%>
 
-      
+      <div class="h2">
+        <p>このTeacherのレビュー</p>
+      </div>
 
-      <%= link_to '編集する', edit_teacher_registration_path(@teacher.id), class: 'teacher-edit'%>
-      <%= link_to '評価する', new_teacher_teacher_evaluation_path(@teacher.id), class: 'teacher-evaluation'%>
+      <div class="reviews">
+        <% @teacher_evaluations.each do |evaluation|%>
 
-      <%# <%= link_to '削除', teacher_path(@profile.id), method: :delete, class:'profile-destroy' %> 
+          <div class="content">
+            
+            <div id="star-rate<%= evaluation.id%>"></div>    
+            <p>評価 : <%= evaluation.rate%>点</p>
+            <p>内容 : <%= evaluation.review%></p>
+            
+            <script>
+              $('#star-rate<%= evaluation.id%>').raty({
+                size      : 36,
+                starOff   : '<%= asset_path('star-off.png') %>',
+                starOn    : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half      : true,
+                readOnly: true,
+                score: <%= evaluation.rate %>,
+              });
+            </script>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <div>
+          <%= link_to 'このTeacherと契約する', teacher_orders_path(@teacher.id), class: 'keiyaku'%>
+        </div>
+
+        <div>
+          <%if current_teacher == @teacher%>
+            <%= link_to 'ログアウト', destroy_teacher_session_path, method: :delete, class: "logout" %>
+          <% end%>
+          <% if current_teacher%>
+          <% if current_teacher.id == @teacher.id %>
+          <%= link_to '編集する', edit_teacher_registration_path(@teacher.id), class: 'teacher-edit'%>
+          <% end%>
+          <% end%>
+
+          <% unless current_teacher == @teacher %>
+          <%= link_to '評価する', new_teacher_teacher_evaluation_path(@teacher.id), class: 'teacher-evaluation'%>
+          <%end%>
+        </div>
+      </div>
+
     </div>
 
-    <h3>口コミ一覧</h3>
-    <% @teacher_evaluations.each do |evaluation|%>
-
-      <div class=card>
-        <p>内容:<%= evaluation.review%></p>
-        <p>評価 :<%= evaluation.rate%>点</p>
-        <div id="star-rate<%= evaluation.id%>"></div>    
-        <script>
-          $('#star-rate<%= evaluation.id%>').raty({
-            size      : 36,
-            starOff   : '<%= asset_path('star-off.png') %>',
-            starOn    : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half      : true,
-            readOnly: true,
-            score: <%= evaluation.rate %>,
-          });
-        </script>
-      </div>
-    <% end %>
+  
 
 
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_051309) do
+ActiveRecord::Schema.define(version: 2020_11_14_105312) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -153,6 +153,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_051309) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  create_table "tips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "admin_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_tips_on_admin_id"
+  end
+
   create_table "tutorials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "admin_id", null: false
     t.string "title", null: false
@@ -188,5 +196,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_051309) do
   add_foreign_key "teacher_comments", "teachers"
   add_foreign_key "teacher_evaluations", "teachers"
   add_foreign_key "teacher_evaluations", "users"
+  add_foreign_key "tips", "admins"
   add_foreign_key "tutorials", "admins"
 end

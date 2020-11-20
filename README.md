@@ -188,7 +188,7 @@ Things you may want to cover:
 | admin              | references  | null: false, foreign_key: true |
 | title              | string      | null: false                    |
 | content            | text        | null: false                    |
-| tip_category_id    | integer     | null: false                    |
+
 
 ### Association
 

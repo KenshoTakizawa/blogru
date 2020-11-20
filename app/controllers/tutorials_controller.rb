@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit]
+  before_action :only_admin, except: [:index, :show]
 
   def index
     @seo_tutorials = Tutorial.where(tuto_category_id: 2)
@@ -41,6 +42,12 @@ class TutorialsController < ApplicationController
   end
 
   private
+
+  def only_admin
+    unless current_admin
+      redirect_to root_path
+    end
+  end
 
   def set_tutorial
     @tutorial = Tutorial.find(params[:id])

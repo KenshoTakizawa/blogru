@@ -4,6 +4,10 @@
 
 #teacher_evaluations-new, #teacher_evaluations-create  {
   .comment-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 650px;
+    
     margin-top: 30px;
     padding-bottom: 20px;
     .user-image {
@@ -29,11 +33,25 @@
     }
     .submit{
       margin-left: 85%;
+      margin-top: 10px;
+      margin-right: 50px;
       .send {
-        border: 1px solid #333;
-        padding: 10px 15px;
-        background-color: gray;
-        color: white;
+        max-width: 180px;
+        text-align: center;
+        border: 2px solid #57bbac;
+        font-size: 16px;
+        color: #57bbac;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin: 10px 0 10px 30px;
+      }
+      .send:hover {
+        background-color: #57bbac;
+        border-color: #EEFFFF;
+        color: #FFF;
       }
     }
     .comments {

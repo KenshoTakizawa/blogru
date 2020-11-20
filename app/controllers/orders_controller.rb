@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :no_teacher
+  before_action :do_login
+  before_action :forbid_order
   require 'payjp'
 
   def index
@@ -23,6 +26,26 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def no_teacher
+    if current_teacher
+      redirect_to root_path
+    end
+  end
+
+  def do_login
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  def forbid_order
+    @teacher = Teacher.find(params[:teacher_id])
+    if current_user.orders.find_by(teacher_id: @teacher.id)
+      redirect_to root_path
+    end
+  end
+
 
   def order_params
     params.require(:order).permit(:price).merge(user_id: current_user.id, teacher_id: @teacher.id, token: params[:token])

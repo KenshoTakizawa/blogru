@@ -7,44 +7,98 @@
         <%= @profile.nickname %>
       </h3>
     </div>
+  <% else%>
+    <div class="image-container">
+      <div class="fake-image"></div>
+
+      <h3>
+        <%= @teacher.nickname %>
+      </h3>
+    </div>
   <% end%>
 
   
   <div class="introduce-container">
     <div class="introduce">
-      <p>自己紹介</p>
+      <p class="h2">自己紹介</p>
+
       <div class="profile-history">
+        <p>学習歴</p>
+        <div>
         <%= @profile.learning_history %>
+        </div>
       </div>
 
       <div class="profile-purpose">
+        <p>学習の目的</p>
+        <div>
         <%= @profile.purpose %>
+        </div>
       </div>
 
-      <div class="profile-birth">
-        <%= @profile.birth_date %>
+      <div class="follow-teacher">
+        <p>契約Teacher</p>
+
+        <div class="user-teachers">
+            <% @profile.user.orders.each do |order|%>
+              <%= link_to teachers_show_path(id: order.teacher.id), class:"teacher" do%>
+                <%= image_tag order.teacher.image, class: "teacher-image" %>
+              <%end%>
+            <% end%>
+        </div>
       </div>
 
+      <div class="iine">
+        <p class="like">いいねしている投稿</p>
+      </div>
       <div class="liked-content">
-      <h3>いいねしている投稿</h3>
-      <% @profile.user.liked_articles.each do |article| %>
-        <%= article.user.profile.nickname %>
-        <%= article.content %>
-      <% end %>
+        
+        <% @profile.user.liked_articles.each do |article| %>
+        <div class="par-article">
+          <%= link_to article_path(article.id), class: "post-a" do %>
+          
+            <%if article.image.present?%>
+            <%= image_tag article.image, class: "image-a"%>
+            <% else%>
+            <div class="damy"></div>
+            <%end%>
+            <div class="article-title">
+              <%= article.title %>
+            </div>
+          <% end%>
+        </div>
+        <% end %>
       </div>
 
+      <div class="profile-links">
+        
+        <div class="par-link">
+        <% if @profile.user == current_user%>
+        <div>
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "logout" %>
+        </div>
+        <% else%>
+        <div class="logout-fake">
+        </div>
+        <% end%>
 
-      <%= link_to '編集する', edit_profile_path(@profile.id), class: 'profile-edit'%>
-      <%= link_to '削除', profile_path(@profile.id), method: :delete, class:'profile-destroy' %>
+        <div>
+          <%if current_user == @profile.user %>
+            <%= link_to '編集する', edit_profile_path(@profile.id), class: 'profile-edit'%>
+          <% else%>
+            <div class="fake"></div>
+          <% end%>
+          <%= link_to 'このユーザーの投稿', profile_user_index_path(@profile.id), class: 'user-index'%>
+        </div>
+        
+          
+        </div>
+        
+      </div>
     </div>
   </div>
 </div>
 
 
-  <% current_user.orders.each do |order|%>
-    <%= order.teacher.nickname %>
-    <%= order.price%>
-
-  <% end%>
 
 

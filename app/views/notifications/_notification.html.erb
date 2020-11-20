@@ -3,11 +3,11 @@
 
 <div class="user-view clearfix ">
   <%= link_to profile_path(notification.visiter.profile.id) do %>
-    <%= image_tag visiter.profile.image %>
+    <%= image_tag visiter.profile.image , class: "user-img"%>
   <% end %>
-  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+  <%= notification_form(notification) %><span class="moderate-font"><%= " #{time_ago_in_words(notification.created_at)} ago" %></span>
   <br>
   <% if !@comment.nil? %>
-    <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @comment %></p>
+    <p class="moderate-font text-center" style="color: gray;"><%= @comment %></p>
   <% end %>
 </div>

@@ -8,7 +8,7 @@
   #error_explanation li{
     margin-left: 35%;
     margin-right: 33%;
-    background-color: blue;
+    background-color: rgb(255, 194, 194);
     
   }
   .form-group {
@@ -43,6 +43,21 @@
       background: #668ad8;/*ボタン色*/
       color: #FFF;
       border-bottom: solid 2px #627295;
+      border-radius: 5px;
+    }
+    .plan-yen {
+      display: flex;
+      align-items: center;
+      p {
+        margin-left: 5px;
+      }
+    }
+    .plan-select {
+      width: 100px;
+      height: 30px;
+      margin-bottom: 10px;
+      padding-left: 15px;
+      border: 1px solid #333;
       border-radius: 5px;
     }
     input[type="submit"]:active {
@@ -143,14 +158,148 @@
     }
     .introduce-container {
       max-width: 1180px;
-      height: 480px;
       margin-top: 90px;
       margin-left: 160px;
       .introduce {
-        width: 63%;
-        height: 200px;
+        width: 730px;
+        min-height: 400px;
         padding: 30px;
         background-color: white;
+
+        #teacher-rate {
+          margin-bottom: 10px;
+        }
+
+        .block {
+
+          padding: 5px 7px;
+          margin-bottom: 10px;
+          width: 500px;
+          p {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+          }
+        }
+        
+        .h2 {
+          padding: 5px 7px 0 7px;
+          p{ 
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #57bbac;
+            display: inline-block;
+            margin-bottom: 7px;
+          }
+        }
+
+        .reviews {
+          margin-top: 10px;
+          max-height: 440px;
+          overflow: scroll;
+          padding: 5px 7px;
+          overflow: scroll;
+          .content {
+            padding: 5px 10px;
+            width: 300px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            box-shadow: 0 3px 0 rgba(136,136,136,1);
+            box-shadow: 3px 3px 6px gray;
+
+            p {
+              font-size: 16px;
+            }
+          }
+          
+        }
+
+        .field {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .keiyaku {
+            display: inline-block;
+            width: 160px;
+            text-align: center;
+            border: 2px solid #57bbac;
+            font-size: 16px;
+            color: #57bbac;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: .4s;
+            margin: 10px 5px;
+          }
+          .keiyaku:hover {
+            background-color: #57bbac;
+            border-color: #EEFFFF;
+            color: #FFF;
+          }
+          .logout {
+            display: inline-block;
+            max-width: 180px;
+            text-align: left;
+            border: 2px solid#fb5a68;
+            font-size: 16px;
+            color: #fb5a68;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: .4s;
+            margin: 10px 5px;
+          }
+          .logout:hover {
+            background-color: #fb5a68;
+            border-color: #ffeeef;
+            color: #FFF;
+          }
+          .teacher-edit {
+            display: inline-block;
+            max-width: 180px;
+            text-align: left;
+            border: 2px solid#07b2e6;
+            font-size: 16px;
+            color: #07b2e6;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: .4s;
+            margin: 10px 5px;
+          }
+          .teacher-edit:hover {
+            background-color: #07b2e6;
+            border-color: #EEFFFF;
+            color: #FFF;
+          }
+          .teacher-evaluation {
+            display: inline-block;
+            max-width: 180px;
+            text-align: left;
+            border: 2px solid #fd9534;
+            font-size: 16px;
+            color: #fd9534;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: .4s;
+            margin: 10px 5px;
+  
+          }
+          .teacher-evaluation:hover {
+            background-color: #fd9534;
+            border-color: #faeed8;
+            color: #FFF;
+  
+          }
+        }
 
         p {
           font-size: 22px;

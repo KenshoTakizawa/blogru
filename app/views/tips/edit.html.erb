@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>投稿を編集</h2>
+  <%= form_with model: @tip, local: true do |form| %>
+    <div class="field">
+        <%= form.text_field :title, placeholder: "タイトルを入力してください", class: "title"%>
+      </div>
+
+      <label class="form-image">
+        <span class="select-image">メディアを追加</span>
+        <%= form.file_field :image, class:"tutorial-image" %>
+      </label>
+      
+      <!-- 2019/10/19 Add S -->
+      <div class="field">
+        <%= form.label :content, class: "content-label"%>
+        <%= form.rich_text_area :content, class: "content-field" %>
+      </div>
+      <!-- 2019/10/19 Add E -->
+      <%= form.submit "編集する" ,class:"submit" %>
+  <% end%>
+</div>

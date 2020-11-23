@@ -128,6 +128,8 @@ Things you may want to cover:
 | teacher_history    | text        | null: false                    |
 | nickname           | string      | null: false                    |
 | plan_id            | integer     | null: false                    |
+| email              | string      | null: false, uniqueness: true    |
+| password           | string      | null: false,                     |
 
 ### Association
 

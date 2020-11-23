@@ -8,4 +8,6 @@ class Notification < ApplicationRecord
     belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
 
 
+  validates :visiter_id, :visited_id, :article_id, :comment_id, :action, presence: true
+
 end

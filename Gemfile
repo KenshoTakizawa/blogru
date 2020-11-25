@@ -85,3 +85,5 @@ gem 'actiontext'
 gem 'active_hash'
 
 gem "aws-sdk-s3", require: false
+
+gem "after_commit_action", '1.1.0'

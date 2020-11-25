@@ -6,6 +6,11 @@
     <div class="link">
       <ul class="menu">
       <% if user_signed_in? %>
+      <% unless current_user.profile.image.present? %>
+        <li class="item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        </li>
+      <%end%>
         <li class="item">
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>
@@ -69,7 +74,7 @@
     <% end%>
     <div class="aicon">
       <% if user_signed_in? %>
-        <% if current_user.profile.present?%>
+        <% if current_user.profile.present? && current_user.profile.image.present?%>
         <%= link_to profile_path(current_user.profile.id) do %>
         <%= image_tag current_user.profile.image, class: "user-image"%>
         <% end%>

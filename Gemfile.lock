@@ -322,6 +322,7 @@ PLATFORMS
 DEPENDENCIES
   actiontext
   active_hash
+  after_commit_action (= 1.1.0)
   aws-sdk-s3
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)

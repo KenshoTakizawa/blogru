@@ -51,6 +51,7 @@
       <div class="iine">
         <p class="like">いいねしている投稿</p>
       </div>
+      <%if @profile.user.liked_articles.present?%>
       <div class="liked-content">
         
         <% @profile.user.liked_articles.each do |article| %>
@@ -69,6 +70,7 @@
         </div>
         <% end %>
       </div>
+      <% end%>
 
       <div class="profile-links">
         

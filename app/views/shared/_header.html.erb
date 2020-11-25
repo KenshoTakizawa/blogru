@@ -6,11 +6,9 @@
     <div class="link">
       <ul class="menu">
       <% if user_signed_in? %>
-      <% unless current_user.profile.image.present? %>
         <li class="item">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
         </li>
-      <%end%>
         <li class="item">
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>

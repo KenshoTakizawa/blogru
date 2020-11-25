@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.order("created_at DESC")
     @teachers = Teacher.all.order("created_at DESC")
-    # @like = Like.new
   end
 
   def show

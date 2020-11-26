@@ -6,9 +6,7 @@
     <div class="link">
       <ul class="menu">
       <% if user_signed_in? %>
-        <li class="item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-        </li>
+        
         <li class="item">
           <%= link_to '投稿する', new_article_path, class: "post-content"%>
         </li>
@@ -18,6 +16,9 @@
         <% if current_user.profile.blank?%>
         <li class="item">
           <%= link_to 'プロフィールを作成する', new_profile_path%>
+        </li>
+        <li class="item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
         </li>
 
         <% end%>
@@ -47,6 +48,9 @@
         </li>
         <li class="item">
           <%= link_to 'ログイン', new_user_session_path, class: "sign-in"%>
+        </li>
+        <li class="item">
+          <%= link_to 'Teacher登録', new_teacher_registration_path, class: "sign-up"%>
         </li>
         <li class="item">
           <%= link_to 'Teacherログイン', new_teacher_session_path, class: "teacher-sign-in"%>

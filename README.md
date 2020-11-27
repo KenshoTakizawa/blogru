@@ -153,7 +153,7 @@ Teacherが記事を投稿することができる機能。Teacherが記事を投
 
 
 # データベース・テーブル設計
-
+https://user-images.githubusercontent.com/71964754/100398043-3a82b300-3090-11eb-89a6-e351d24fc4c0.png
 ## users テーブル
 
 | Column          | Type   | Options                          |

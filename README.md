@@ -154,6 +154,7 @@ Teacherが記事を投稿することができる機能。Teacherが記事を投
 
 # データベース・テーブル設計
 <img width="447" alt="スクリーンショット 2020-11-27 9 03 09" src="https://user-images.githubusercontent.com/71964754/100398120-74ec5000-3090-11eb-9a7d-7fb1de2c5eb9.png">
+
 ## users テーブル
 
 | Column          | Type   | Options                          |

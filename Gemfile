@@ -91,3 +91,5 @@ gem "after_commit_action", '1.1.0'
 gem 'uglifier'
 
 gem 'aws-eventstream', '1.1.0'
+
+gem 'rmagick'

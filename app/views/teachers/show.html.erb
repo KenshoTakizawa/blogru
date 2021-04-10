@@ -104,9 +104,13 @@
       </div>
 
       <div class="field">
-        <div>
-          <%= link_to 'このTeacherと契約する', teacher_orders_path(@teacher.id), class: 'keiyaku'%>
-        </div>
+        <%if current_user %>
+          <%until current_user.orders.find_by(teacher_id: @teacher.id)%>
+            <div>
+              <%= link_to 'このTeacherと契約する', teacher_orders_path(@teacher.id), class: 'keiyaku'%>
+            </div>
+          <% end %>
+        <% end %>
 
         <div>
           <%if current_teacher == @teacher%>

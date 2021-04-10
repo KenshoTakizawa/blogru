@@ -21,6 +21,7 @@ class TutorialsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update

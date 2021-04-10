@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :no_teacher
   before_action :do_login
   before_action :forbid_order
   require 'payjp'

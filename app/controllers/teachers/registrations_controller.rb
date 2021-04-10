@@ -38,7 +38,7 @@ class Teachers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def edit
- 
+    
   end
  
   def update
@@ -53,7 +53,7 @@ class Teachers::RegistrationsController < Devise::RegistrationsController
   protected
   
   def configure_account_update_params
-   devise_parameter_sanitizer.permit(:account_update, keys: [:teach_content, :teach_detail, :teacher_history, :nickname, :image])
+   devise_parameter_sanitizer.permit(:account_update, keys: [:teach_content, :teach_detail, :teacher_history, :nickname, :image, :plan_id])
   end
   
   def update_resource(resource, params)

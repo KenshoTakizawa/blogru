@@ -36,8 +36,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :price, "生徒さんに教えてあげる時の月額" %><br />
-    <%= f.number_field :price, autofocus: true, autocomplete: "price" , placeholder: "半角数字で入力してください"%>
+    <%= f.label :plan_id, "生徒さんに教えてあげる時の月額" %><br />
+    <div class="plan-yen">
+    <%= f.collection_select(:plan_id, Plan.all, :id, :name, {}, {class:"plan-select"}) %><p>円</p>
+    </div>
   </div>
 
   <div class="actions">

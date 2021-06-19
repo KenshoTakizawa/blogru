@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-
+# test
 
   def configure_sign_up_params
     if resource_class == Teacher
